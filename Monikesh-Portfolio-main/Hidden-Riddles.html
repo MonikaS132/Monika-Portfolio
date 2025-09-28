@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hidden Riddles – Game Details</title>
+    <link rel="stylesheet" href="CSS and JS/styles.css" />
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- Extra overrides for project details -->
+    <style>
+        /* Slide up animation once */
+        .slide-up-once {
+            animation: slideUpOnce 1s ease forwards;
+        }
+
+        @keyframes slideUpOnce {
+            0% {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Project Details Page Layout */
+        .project-details-page {
+            max-width: 1150px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            font-size: 1.15rem;
+            line-height: 1.75;
+        }
+
+        /* Header section */
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .project-header img {
+            width: 180px;
+            height: auto;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+        }
+
+        .project-title-block {
+            flex: 1;
+        }
+
+        .project-title-block h1 {
+            margin: 0 0 0.8rem 0;
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #6ee7b7, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-meta {
+            font-size: 1.2rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .project-meta strong {
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+
+        /* Sections */
+        .project-details-page h2 {
+            margin-top: 2.2rem;
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        .project-details-page ul {
+            margin-left: 1.4rem;
+            font-size: 1.15rem;
+        }
+
+        /* CTA buttons */
+        .project-cta {
+            margin-top: 3rem;
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn.ghost {
+            font-size: 1.1rem;
+            padding: 0.6rem 1.4rem;
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .btn.ghost:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        /* Mobile view */
+        @media (max-width: 768px) {
+            .project-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .project-header img {
+                width: 200px;
+            }
+
+            .project-title-block {
+                margin-top: 1rem;
+            }
+
+            .project-title-block h1 {
+                font-size: 2rem;
+            }
+
+            .project-meta {
+                font-size: 1.1rem;
+            }
+
+            #particle-canvas {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                pointer-events: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Particle background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <main class="project-details-page card slide-up-once">
+        <!-- Hidden Riddles Project -->
+        <div class="project-header">
+            <img src="https://play-lh.googleusercontent.com/RXrh0qOpx5tf96BncfqfI3UHlNC6GKhJC9RGYQKMZ5Kmq3tLmPd_OTFEqZuq-YFM0Dg=w480-h960-rw"
+                alt="Hidden Riddles Icon" />
+            <div class="project-title-block">
+                <h1>🕹️ Escape Room: Hidden Riddles</h1>
+                <div class="project-meta">
+                    <p><strong>👩‍💻 Role:</strong> Game Designer, Level Designer, Narrator & Puzzle Designer</p>
+                    <p><strong>🛠️ Tools Used:</strong> Unity</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>📜 About the Game</h2>
+        <p>
+            Hidden Riddles is an 🏺 ancient-themed fantasy adventure packed with mystery and twists. Twin princesses,
+            separated and raised in very different worlds, reunite to uncover the truth behind their cursed kingdom and
+            reclaim their destiny. Players explore magical lands, uncover secrets, and restore balance to their world.
+        </p>
+
+        <h2>🎮 Storyline & Gameplay</h2>
+        <p>
+            Players travel through vibrant ✨ fantasy environments like Frog Village 🐸, Mushroom Village 🍄, Carnival 🎡
+            and mystical tribal forests 🌳. They solve ancient puzzles, recover magical stones, and face their cousin’s
+            dark power while discovering their own hidden heritage.
+        </p>
+
+        <h2>🕹️ Game Mechanics</h2>
+        <ul>
+            <li>🧩 <strong>Interactive puzzles & riddles:</strong> Solve ancient symbols, rotating stone mechanisms, and memory-based tasks to progress.</li>
+            <li>🐉 <strong>Mini-games:</strong> Engage in thrilling dragon fights 🐲, clever frog challenges 🐸, and adventurous boat rides 🚤 that break up the main storyline.</li>
+            <li>🎒 <strong>Exploration & inventory:</strong> Collect enchanted items ✨ and use them to unlock portals or reveal hidden paths.</li>
+            <li>💬 <strong>Dialogue-driven choices:</strong> Interactions with tribal leaders, magical beings, and allies affect story direction 🗝️.</li>
+            <li>🌍 <strong>Fantasy environments:</strong> Each level offers distinct visuals and mechanics tied to its setting, immersing players in a living, ancient world.</li>
+        </ul>
+
+        <div class="project-cta">
+            <a href="index.html#projects" class="btn ghost">⬅ Back to Projects</a>
+            <a href="https://play.google.com/store/apps/details?id=air.com.hfg.hiddenriddles&hl=en_IN" target="_blank"
+                class="btn ghost">
+                <i class="bi bi-google-play"></i> Play Store
+            </a>
+        </div>
+    </main>
+
+    <!-- Particle animation script -->
+    <script>
+        const canvas = document.getElementById("particle-canvas");
+        const ctx = canvas.getContext("2d");
+
+        let particles = [];
+        let particleDensity = 0.00015;
+
+        class Particle {
+            constructor(width, height) {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.radius = Math.random() * 2 + 1;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.speedY = (Math.random() - 0.5) * 0.5;
+                this.color = `hsl(${Math.random() * 360}, 80%, 70%)`;
+            }
+            update(width, height) {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x < 0) this.x = width;
+                if (this.x > width) this.x = 0;
+                if (this.y < 0) this.y = height;
+                if (this.y > height) this.y = 0;
+            }
+            draw(ctx) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+
+            const totalParticles = Math.floor(canvas.width * canvas.height * particleDensity);
+            for (let i = 0; i < totalParticles; i++) {
+                particles.push(new Particle(canvas.width, canvas.height));
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update(canvas.width, canvas.height);
+                p.draw(ctx);
+            });
+            requestAnimationFrame(animate);
+        }
+
+        initParticles();
+        animate();
+
+        window.addEventListener("resize", initParticles);
+    </script>
+</body>
+
+</html>

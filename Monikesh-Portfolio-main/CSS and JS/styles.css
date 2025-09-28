@@ -1,0 +1,597 @@
+:root {
+  --bg: #0f1724;
+  --card: #0b1220;
+  --muted: #9aa4b2;
+  --accent: #6ee7b7;
+  --glass: rgba(255, 255, 255, 0.03);
+  --radius: 14px;
+  --max: 1100px;
+  --gap: 18px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Glass Navbar */
+.glass-navbar {
+  position: fixed;
+  /* fixed so it doesn't push content */
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 10px 20px;
+  opacity: 0;
+  /* hidden by default */
+  pointer-events: none;
+  /* can't click while hidden */
+  transition: all 0.4s ease;
+  /* smooth fade/slide */
+}
+
+.glass-navbar.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.glass-navbar .nav-link {
+  color: #fff;
+  font-weight: 500;
+  margin: 0 8px;
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  /* default invisible underline */
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.glass-navbar .nav-link.active {
+  color: var(--accent);
+  /* green */
+  border-bottom: 2px solid var(--accent);
+}
+
+.glass-navbar .nav-link:hover {
+  color: var(--accent);
+}
+
+body,
+body * {
+  color: #ffffff !important;
+}
+
+.hero .btn.ghost {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
+
+.hero .btn.ghost:hover {
+  background: var(--accent);
+  /* green background */
+  color: var(--bg);
+  /* text becomes dark background color */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 28px;
+  min-height: 100vh;
+  color: #e6eef6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(270deg, #1e3a8a);
+  background-size: 800% 800%;
+  /* expand background for smooth transition */
+  animation: bgGradientAnimation 15s ease infinite;
+  /* smooth infinite animation */
+}
+
+/* Gradient animation keyframes */
+@keyframes bgGradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  max-width: var(--max);
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+  background: rgba(21, 28, 44, 0.6) !important;
+  /* dark glass, force override */
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  box-shadow: 0 4px 18px rgba(2, 6, 23, 0.5) !important;
+  min-height: 120px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  /* subtle frosted border */
+}
+
+.hero .name {
+  font-size: 3rem;
+  /* bigger size */
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 6px;
+  background: linear-gradient(90deg, #6ee7b7, #3b82f6, #facc15, #ec4899);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 5s ease infinite;
+}
+
+/* Gradient animation keyframes */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero .role {
+  font-size: 1.5rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.hero .blurb {
+  font-size: 1rem;
+  color: #e2e8f0;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+
+
+/* ---------- CTA ---------- */
+.cta {
+  gap: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #042028;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--accent);
+}
+
+.social {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding-left: 6px;
+}
+
+.glass-box {
+  background: rgba(24, 63, 153, 0.233);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 18px rgba(2, 6, 23, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 20px;
+  opacity: 0;
+  /* hidden initially */
+  transform: translateY(40px);
+  /* slide-up start */
+  transition: all 0.8s ease;
+}
+
+/* When visible */
+.glass-box.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Card Styling ---------- */
+.card {
+  background: rgba(21, 28, 44, 0.6) !important;
+  /* dark glass, force override */
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  box-shadow: 0 4px 18px rgba(2, 6, 23, 0.5) !important;
+  min-height: 120px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  padding-bottom: 15px;
+  font-size: 1.5rem;
+  /* increased */
+  font-weight: 700;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 8px;
+}
+
+/* ---------- Lists ---------- */
+/* Skills list styling */
+.stack {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stack li {
+  border-radius: var(--radius);
+  padding: 6px 12px;
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.stack li:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.stack li i {
+  margin-right: 6px;
+}
+
+.work {
+  margin: 0;
+  padding: 0;
+}
+
+.work div {
+  margin-bottom: 12px;
+}
+
+.work dt {
+  font-weight: 700;
+}
+
+.work dd {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.education .timeline-item dt {
+  display: flex;
+  align-items: center;
+  /* keep icon and text aligned */
+  gap: 8px;
+  /* space between icon and text */
+  font-weight: bold;
+  margin-bottom: 10px;
+  /* 👈 space below dt line */
+}
+
+.education .timeline-item dt i {
+  font-size: 20px;
+  /* adjust icon size */
+  color: #6ee7b7;
+  /* optional highlight */
+}
+
+.work .timeline-item dt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* space between icon and text */
+  font-weight: bold;
+  margin-bottom: 10px;
+  /* space below icon+title line */
+}
+
+.work .timeline-item dt i {
+  font-size: 20px;
+  /* size of the work icon */
+  color: #6ee7b7;
+  /* same highlight as education, change if needed */
+}
+
+
+
+/* Timeline container */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+  /* space for vertical line and dots */
+  margin-top: 10px;
+}
+
+/* Vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  /* line position */
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--accent);
+  /* green line */
+}
+
+/* Each timeline item */
+.timeline-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+/* Dot for each item */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -19px;
+  /* center on line */
+  top: 20px;
+  /* adjust vertical */
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  /* green dot */
+  border-radius: 50%;
+  border: 2px solid #fff;
+  /* optional: white border around dot */
+}
+
+/* Adjust dt and dd for spacing */
+.timeline-item dt {
+  font-weight: 700;
+  margin-bottom: 2px;
+  margin-bottom: 30px;
+}
+
+.timeline-item span {
+  font-weight: 700;
+  font-size: xx-large;
+}
+
+.timeline-item dd {
+  margin-left: 0;
+  margin-bottom: 8px;
+  color: var(--muted);
+}
+
+/* ---------- Projects ---------- */
+.projects {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.game-item {
+  display: flex;
+  align-items: center;
+  /* centers icon + text vertically */
+  gap: 16px;
+  margin-bottom: 20px;
+  background: rgba(24, 63, 153, 0.233);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+/* Optional hover effect */
+.game-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Image 40% - stays side by side */
+.game-item .game-icon {
+  width: 120px;
+  /* fixed size */
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
+.game-name {
+  margin: 0 0 6px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* Flex layout for image left, text right */
+.game-entry {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.game-details {
+  flex: 1;
+}
+
+/* Details 60% */
+.game-item .game-details {
+  flex: 1;
+}
+
+.game-details h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.1rem;
+}
+
+.game-item .game-details {
+  flex: 0 0 60%;
+  /* Details take 60% */
+}
+
+/* Details 60% */
+.game-item .game-details .btn.ghost{
+  margin-left: 10px;
+}
+
+/* ✅ Text wrapping fix */
+.game-description {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.game-tasks {
+  margin: 5px 0 10px;
+  padding-left: 20px;
+}
+
+.game-tasks li {
+  list-style: disc;
+  margin-bottom: 4px;
+}
+
+.game-details h3 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #6ee7b7, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.game-details .btn.ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent, #6ee7b7);
+  background: transparent;
+  border: 1px solid var(--accent, #6ee7b7);
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+}
+
+.game-details .btn.ghost i {
+  margin-right: 5px;
+  /* gap between icon and text */
+  font-size: 1rem;
+  /* optional: adjust icon size */
+  vertical-align: middle;
+  /* keeps it aligned with text */
+}
+
+.game-details .btn.ghost:hover {
+  background: var(--accent, #6ee7b7);
+  color: var(--bg, #0f1724);
+
+  /* fallback dark background */
+}
+
+.game-item .a {
+  margin-left: 50px;
+}
+
+/* 📱 Responsive: On small screens, stack */
+@media (max-width: 768px) {
+  .game-item {
+    flex-direction: column;
+  }
+
+
+
+  .game-item .game-icon,
+  .game-item .game-details {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .game-entry {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .game-icon {
+    width: 40%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  margin-top: 18px;
+  color: var(--muted);
+}
+
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  /* stays behind everything */
+  pointer-events: none;
+  /* ignore clicks */
+}
